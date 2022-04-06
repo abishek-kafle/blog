@@ -15,23 +15,25 @@
                             <h3>All Authors</h3>
                         </div>
                         <div class="col-md-3">
-                            <a href="{{route('category.add')}}" class="btn btn-info">Add Author</a>
+                            <a href="{{route('author.add')}}" class="btn btn-info">Add Author</a>
                         </div>
                     </div>
                     <table class="table">
                         <thead>
                           <tr>
                             <th scope="col">ID</th>
-                            <th scope="col">Title</th>
-                            <th scope="col">Action</th>
+                            <th scope="col">Full Name</th>
+                            <th scope="col">Email</th>
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                          </tr>
+                            @foreach ($authors as $author)
+                            <tr>
+                                <td>{{$author->id}}</td>
+                                <td>{{$author->full_name}}</td>
+                                <td>{{$author->email}}</td>
+                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

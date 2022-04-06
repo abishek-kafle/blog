@@ -5,6 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
+                @include('includes.messages')
                 <div class="card-header">
                     @include('includes.navbar')
                 </div>
@@ -23,15 +24,21 @@
                           <tr>
                             <th scope="col">ID</th>
                             <th scope="col">Title</th>
+                            <th scope="col">Image</th>
                             <th scope="col">Action</th>
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                          </tr>
+                            @foreach ($categories as $category)
+                            <tr>
+                                <td>{{$category->id}}</td>
+                                <td>{{$category->title}}</td>
+                                <td><img src="{{asset('uploads/'.$category->image)}}" alt="No Image" style="width: 150px;"></td>
+                                <td>
+                                    <a href="{{ route('category.delete',$category->id) }}" class="btn btn-danger btn-delete"><i class="fa fa-trash"></i></a>
+                                </td>
+                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -40,3 +47,5 @@
     </div>
 </div>
 @endsection
+
+

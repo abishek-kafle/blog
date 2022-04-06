@@ -5,6 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
+                @include('includes.messages')
                 <div class="card-header">
                     @include('includes.navbar')
                 </div>
@@ -12,29 +13,22 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-9">
-                            <h3>Add Category</h3>
+                            <h3>Add Author</h3>
                         </div>
                         <div class="col-md-3">
-                            <a href="{{route('category.index')}}" class="btn btn-info">View Category</a>
+                            <a href="{{route('author.index')}}" class="btn btn-info">View Authors</a>
                         </div>
                     </div>
-                    <form action="{{route('category.store')}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{route('author.store')}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
-                            <label for="title">Title</label>
-                            <input type="text" class="form-control" id="title" name="title" placeholder="Enter Title">
+                            <label for="full_name">Full Name</label>
+                            <input type="text" class="form-control" id="full_name" name="full_name">
                         </div>
-                        <br>
                         <div class="form-group">
-                            <label for="description">Description</label>
-                            <textarea name="description" id="description" class="form-control" rows="10"></textarea>
+                            <label for="email">Email</label>
+                            <input type="text" class="form-control" id="email" name="email">
                         </div>
-
-                        <div class="form-group col-md-6">
-                            <label for="title">Image</label>
-                            <input type="file" class="form-control" id="image" name="image" accept="image/*" onchange="readURL(this)">
-                        </div>
-
                         <br>
                         <button type="submit" class="btn btn-primary">Add</button>
                     </form>

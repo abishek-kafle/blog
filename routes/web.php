@@ -26,9 +26,12 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/categories', [App\Http\Controllers\CategoryController::class, 'index'])->name('category.index');
 Route::get('/categories/add', [App\Http\Controllers\CategoryController::class, 'add'])->name('category.add');
 Route::post('/categories/store', [App\Http\Controllers\CategoryController::class, 'store'])->name('category.store');
+Route::get('/categories/delete/{id}', [App\Http\Controllers\CategoryController::class, 'delete'])->name('category.delete');
 
 // Blog
 Route::get('/blogs', [App\Http\Controllers\BlogController::class, 'index'])->name('blog.index');
 
 // Author
 Route::get('/authors', [App\Http\Controllers\AuthorController::class, 'index'])->name('author.index');
+Route::get('/authors/add', [App\Http\Controllers\AuthorController::class, 'add'])->name('author.add');
+Route::post('/authors/store', [App\Http\Controllers\AuthorController::class, 'store'])->name('author.store');
