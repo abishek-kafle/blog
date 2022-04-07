@@ -5,6 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
+                @include('includes.messages')
                 <div class="card-header">
                     @include('includes.navbar')
                 </div>
@@ -15,7 +16,7 @@
                             <h3>All Blogs</h3>
                         </div>
                         <div class="col-md-3">
-                            <a href="{{route('category.add')}}" class="btn btn-info">Add Blog</a>
+                            <a href="{{route('blog.add')}}" class="btn btn-info">Add Blog</a>
                         </div>
                     </div>
                     <table class="table">
@@ -23,15 +24,24 @@
                           <tr>
                             <th scope="col">ID</th>
                             <th scope="col">Title</th>
-                            <th scope="col">Action</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">Author</th>
+                            <th scope="col">Actions</th>
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                          </tr>
+                            @foreach ($blogs as $blog)
+                            <tr>
+                                <td>{{$blog->id}}</td>
+                                <td>{{$blog->title}}</td>
+                                <td>{{$blog->category}}</td>
+                                <td>{{$blog->author}}</td>
+                                <td>
+                                    <a href="{{route('blog.edit', $blog->id)}}" class="btn btn-info"><i class="fa fa-edit"></i></a>
+                                    <a href="" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                </td>
+                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

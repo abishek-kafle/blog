@@ -30,6 +30,11 @@ Route::get('/categories/delete/{id}', [App\Http\Controllers\CategoryController::
 
 // Blog
 Route::get('/blogs', [App\Http\Controllers\BlogController::class, 'index'])->name('blog.index');
+Route::get('/blogs/add', [App\Http\Controllers\BlogController::class, 'add'])->name('blog.add');
+Route::post('/blogs/store', [App\Http\Controllers\BlogController::class, 'store'])->name('blog.store');
+Route::get('/blogs/edit/{id}', [App\Http\Controllers\BlogController::class, 'edit'])->name('blog.edit');
+Route::post('/blog/update/{id}', [App\Http\Controllers\BlogController::class, 'update'])->name('blog.update');
+Route::get('/blog/delete/{id}', [App\Http\Controllers\BlogController::class, 'delete'])->name('blog.delete');
 
 // Author
 Route::get('/authors', [App\Http\Controllers\AuthorController::class, 'index'])->name('author.index');
